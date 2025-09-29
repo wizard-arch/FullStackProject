@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mb-4">
+    <div class="card-body">
+        <form id="add-task-form" action="{{ url_for('add_task') }}" method="POST">
+            <div class="input-group">
+                <input type="text" name="content" class="form-control" placeholder="Enter a new task..." required>
+                <button class="btn btn-primary" type="submit">Add Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="kanban-column" id="todo-column">
+            <h4 class="text-center">To Do</h4>
+            <hr>
+            {% for task in tasks if task.status == 'todo' %}
+            <div class="card task-card mb-3" data-task-id="{{ task.id }}">
+                <div class="card-body">
+                    <p class="card-text">{{ task.content }}</p>
+                    <div class="task-actions">
+                        <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                        <button class="btn btn-success btn-sm move-btn" data-new-status="inprogress">▶</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="kanban-column" id="inprogress-column">
+            <h4 class="text-center">In Progress</h4>
+            <hr>
+            {% for task in tasks if task.status == 'inprogress' %}
+            <div class="card task-card mb-3" data-task-id="{{ task.id }}">
+                <div class="card-body">
+                    <p class="card-text">{{ task.content }}</p>
+                    <div class="task-actions">
+                        <button class="btn btn-warning btn-sm move-btn" data-new-status="todo">◀</button>
+                        <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                        <button class="btn btn-success btn-sm move-btn" data-new-status="done">▶</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="kanban-column" id="done-column">
+            <h4 class="text-center">Done</h4>
+            <hr>
+            {% for task in tasks if task.status == 'done' %}
+            <div class="card task-card mb-3" data-task-id="{{ task.id }}">
+                <div class="card-body">
+                    <p class="card-text">{{ task.content }}</p>
+                    <div class="task-actions">
+                        <button class="btn btn-warning btn-sm move-btn" data-new-status="inprogress">◀</button>
+                        <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
