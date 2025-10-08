@@ -7,7 +7,7 @@ A responsive and interactive personal Kanban board application built with Python
 
 ---
 
-## ##  Features
+##  Features
 
 * **Secure User Authentication:** Full registration and login system with password hashing to keep user data safe.
 * **Private Boards:** Each user has their own separate, private Kanban board; tasks are not visible to other users.
@@ -18,7 +18,7 @@ A responsive and interactive personal Kanban board application built with Python
 
 ---
 
-## ##  Tech Stack
+##  Tech Stack
 
 * **Backend:** Python, Flask, Flask-SQLAlchemy, Flask-Login
 * **Frontend:** HTML5, CSS3, Bootstrap 5, JavaScript, jQuery
@@ -26,16 +26,16 @@ A responsive and interactive personal Kanban board application built with Python
 
 ---
 
-## ## Getting Started
+##  Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine.
 
-### ### Prerequisites
+###  Prerequisites
 
 * Python 3.x
 * pip (Python package installer)
 
-### ### Installation
+###  Installation
 
 1.  **Clone the repository**
     ```sh
@@ -79,7 +79,3 @@ Follow these instructions to get a copy of the project up and running on your lo
 5.  Use the `◀` and `▶` buttons to move tasks between columns and the `Delete` button to remove them.
 
 ---
-
-## ##  License
-
-This project is licensed under the MIT License.
